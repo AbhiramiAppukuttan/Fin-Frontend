@@ -248,7 +248,7 @@ const SignupPage = () => {
   });
 
   const handleGoogleSignup = () => {
-    window.location.href = 'https://fintrack-backend-ohlv.onrender.com/auth/google';
+    window.location.href = 'https://fin-backend-8fwu.onrender.com/auth/google';
   };
 
   return (
