@@ -250,10 +250,9 @@ const AdminDashboard = () => {
 const dispatch=useDispatch()
 const navigate=useNavigate()
 const handleLogout = () => {
-  dispatch(logoutAction());
-  sessionStorage.clear();
-  navigate("/");
-  window.location.reload(); // <- force page refresh
+  dispatch(logoutAction());     // Clear Redux state
+  sessionStorage.clear();       // Clear local storage/session storage
+  window.location.href = "/";   // Full reload to homepage
 };
 
   const users = Array.isArray(data?.activeUsers) ? data.activeUsers : [];
