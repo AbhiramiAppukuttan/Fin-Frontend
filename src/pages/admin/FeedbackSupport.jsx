@@ -157,13 +157,13 @@ const FeedbackSupport = () => {
                         <td className="py-2">
                           {complaint.status === "Resolved" ? (
                             <span className="text-green-500 font-bold">Resolved</span>
-                          ) : (
-                            <button
+                          ) : ( (complaint.type === "complaint") &&
+                            (<button
                               className="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition"
                               onClick={() => resolveComplaint(complaint._id)}
                             >
                               Resolve
-                            </button>
+                            </button>)
                           )}
                         </td>
 

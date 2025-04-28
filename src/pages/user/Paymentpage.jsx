@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useMutation } from "@tanstack/react-query";
@@ -9,6 +9,7 @@ import { paymentAPI } from "../../services/paymentServices";
 const PaymentPage = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
+  const navigate = useNavigate();
 
   const plans = {
     free: 0,
@@ -58,6 +59,7 @@ const planPrice = plans[planName] || 19.99;  // Defaults to basic plan if invali
         amount: planPrice,  // Ensure it's a number
         plan:planName
       });
+      navigate("/profile");
     },
   });
 

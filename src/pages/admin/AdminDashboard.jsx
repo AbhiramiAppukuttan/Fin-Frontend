@@ -261,7 +261,7 @@ const AdminDashboard = () => {
   const pageTitles = {
     "/admin": "Dashboard",
     "/admin/user-management": "User Management",
-    "/admin/reports": "Reports",
+    "/admin/report": "Reports",
     "/admin/settings": "Settings",
   };
 
@@ -335,9 +335,9 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/admin/reports"
+                  to="/admin/report"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/admin/reports"
+                    location.pathname === "/admin/report"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
