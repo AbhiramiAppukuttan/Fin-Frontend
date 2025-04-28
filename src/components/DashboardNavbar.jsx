@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import NotificationPage from "../pages/user/NotificationPage";
 import { viewNotificationAPI } from "../services/notificationServices";
 import { logoutAction } from "../redux/authSlice";
+import { useDispatch } from "react-redux";
 
 const DashboardNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const DashboardNavbar = () => {
     queryKey: ["notifications"],
     queryFn: viewNotificationAPI,
   });
-
+const dispatch=useDispatch()
   // Count unread notifications
   const unreadCount = notifications.filter((notif) => !notif.isRead).length;
 
@@ -69,7 +70,7 @@ const DashboardNavbar = () => {
             <Link to="/user/dashboard" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Home</Link>
             <Link to="/user/profile" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Profile</Link>
             <Link to="/user/settings" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Settings</Link>
-            <Link to="/" className="hover:text-gray-400" onClick={() => logoutAction()}>Logout</Link>
+            <Link to="/" className="hover:text-gray-400" onClick={() =>dispatch(logoutAction())}>Logout</Link>
           </div>
         )}
       </nav>

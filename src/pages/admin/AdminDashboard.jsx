@@ -237,6 +237,8 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recha
 import UserManagement from "./UserManagement";
 import { useQuery } from "@tanstack/react-query";
 import { dashboardAPI } from "../../services/adminServices";
+import { logoutAction } from "../../redux/authSlice";
+import { useDispatch } from "react-redux";
 
 const COLORS = ["#4F46E5", "#10B981", "#F59E0B"];
 
@@ -245,7 +247,7 @@ const AdminDashboard = () => {
     queryKey: ["admin-dashboard"],
     queryFn: dashboardAPI,
   });
-
+const dispatch=useDispatch()
   const users = Array.isArray(data?.activeUsers) ? data.activeUsers : [];
   const userCount = users.length;
 
@@ -370,9 +372,7 @@ const AdminDashboard = () => {
             {pageTitles[location.pathname]}
           </h2>
           <div className="flex items-center space-x-6">
-            <Link to="/" className="text-xl hover:text-blue-400 cursor-pointer pt-1">
-              <FaPowerOff />
-            </Link>
+            <Link to="/" className="hover:text-gray-400" onClick={() =>dispatch(logoutAction())}><FaPowerOff/></Link>
           </div>
         </nav>
 
