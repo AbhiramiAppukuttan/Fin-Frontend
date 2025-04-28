@@ -260,8 +260,9 @@ const AdminDashboard = () => {
 
   const pageTitles = {
     "/admin": "Dashboard",
-    "/user-management": "User Management",
-    "/report": "Reports",
+    "/admin/user-management": "User Management",
+    "/admin/reports": "Reports",
+    "/admin/settings": "Settings",
   };
 
   const pieData = [
@@ -298,7 +299,7 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/user-management"
+                  to="/admin/user-management"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
                     location.pathname === "/admin/user-management"
                       ? "bg-blue-500 text-white"
@@ -310,7 +311,7 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/feedback-support"
+                  to="/admin/feedback-support"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
                     location.pathname === "/admin/feedback-support"
                       ? "bg-blue-500 text-white"
@@ -322,7 +323,7 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/subscribers"
+                  to="/admin/subscribers"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
                     location.pathname === "/admin/subscribers"
                       ? "bg-blue-500 text-white"
@@ -334,9 +335,9 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/report"
+                  to="/admin/reports"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/admin/report"
+                    location.pathname === "/admin/reports"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -344,7 +345,18 @@ const AdminDashboard = () => {
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
-              
+              <li>
+                <Link
+                  to="/admin/settings"
+                  className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
+                    location.pathname === "/admin/settings"
+                      ? "bg-blue-500 text-white"
+                      : "hover:bg-gray-100"
+                  }`}
+                >
+                  <Settings size={20} /> Settings
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -442,7 +454,14 @@ const AdminDashboard = () => {
                 </div>
               }
             />
-            
+            <Route
+              path="/settings"
+              element={
+                <div className="bg-white p-6 shadow-md rounded-lg">
+                  Settings Content
+                </div>
+              }
+            />
           </Routes>
         </main>
       </div>
