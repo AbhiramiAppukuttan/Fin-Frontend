@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaUserCircle, FaBell, FaPowerOff } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import NotificationPage from "../pages/user/NotificationPage";
@@ -9,7 +9,7 @@ import { viewNotificationAPI } from "../services/notificationServices";
 const DashboardNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
-
+  const navigate = useNavigate()
   // Fetch notifications
   const { data: notifications = [] } = useQuery({
     queryKey: ["notifications"],
@@ -51,6 +51,7 @@ const DashboardNavbar = () => {
             <Link to="/user/profile">
               <FaUserCircle className="text-2xl hover:text-gray-400 cursor-pointer" />
             </Link>
+            <button onClick={()=>navigate("")}><FaPowerOff /></button>
             <Link to="/" className="text-xl hover:text-blue-400 cursor-pointer pt-1">
               <FaPowerOff />
             </Link>
