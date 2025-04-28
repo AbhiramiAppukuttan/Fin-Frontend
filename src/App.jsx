@@ -32,7 +32,7 @@ import ForgotPassword from "./pages/user/ForgotPassword";
 import ResetPassword from "./pages/user/ResetPassword";
 
 function App() {
-    const userRole = useSelector((state)=>state.auth.role)
+    // const userRole = useSelector((state)=>state.auth.role)
   return (
     <Router>
       <Routes>
