@@ -18,6 +18,11 @@ const DashboardNavbar = () => {
     queryFn: viewNotificationAPI,
   });
 const dispatch=useDispatch()
+const handleLogout = () => {
+  dispatch(logoutAction());
+  navigate("/");
+  sessionStorage.clear()
+};
   // Count unread notifications
   const unreadCount = notifications.filter((notif) => !notif.isRead).length;
 
@@ -70,8 +75,9 @@ const dispatch=useDispatch()
             <Link to="/user/dashboard" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Home</Link>
             <Link to="/user/profile" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Profile</Link>
             <Link to="/user/settings" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Settings</Link>
-            <Link to="/" className="hover:text-gray-400" onClick={() =>dispatch(logoutAction())}>Logout</Link>
-          </div>
+            <button onClick={handleLogout} className="hover:text-gray-400">
+      <FaPowerOff />
+    </button>  </div>
         )}
       </nav>
 

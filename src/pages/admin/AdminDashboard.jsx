@@ -230,7 +230,7 @@ import {
   Home,
   Wallet,
 } from "lucide-react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import { FaPowerOff } from "react-icons/fa";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
@@ -248,6 +248,12 @@ const AdminDashboard = () => {
     queryFn: dashboardAPI,
   });
 const dispatch=useDispatch()
+const navigate=useNavigate()
+const handleLogout = () => {
+  dispatch(logoutAction());
+  navigate("/");
+  sessionStorage.clear()
+};
   const users = Array.isArray(data?.activeUsers) ? data.activeUsers : [];
   const userCount = users.length;
 
@@ -372,8 +378,10 @@ const dispatch=useDispatch()
             {pageTitles[location.pathname]}
           </h2>
           <div className="flex items-center space-x-6">
-            <Link to="/" className="hover:text-gray-400" onClick={() =>dispatch(logoutAction())}><FaPowerOff/></Link>
-          </div>
+          <button onClick={handleLogout} className="hover:text-gray-400">
+      <FaPowerOff />
+    </button>
+      </div>
         </nav>
 
         {/* Page Content */}
