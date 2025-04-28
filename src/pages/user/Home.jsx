@@ -2,7 +2,7 @@ import React from 'react';
 import About from './About';
 import BodyImage from "../../assets/body-img.jpg";
 import Feature from './Feature';
-import { Link } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -33,10 +33,10 @@ const Home = () => {
         {/* Call to Action Button */}
         <div className="mt-8">
           <Link to="/login">
-          <button className="bg-gradient-to-r from-blue-500 to-green-400 text-white px-8 py-3 rounded-full text-lg font-semibold transition-transform duration-300 hover:scale-105">
-            Join Us Today
-          </button>
-          </Link>
+                    <button className="bg-gradient-to-r from-green-400 to-blue-500 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full">
+                      Get Started
+                    </button>
+                  </Link>
         </div>
       </div>
 

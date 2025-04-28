@@ -30,13 +30,14 @@ import Subscribers from "./pages/admin/Subscribers";
 import AdminReport from "./pages/admin/AdminReport";
 import ForgotPassword from "./pages/user/ForgotPassword";
 import ResetPassword from "./pages/user/ResetPassword";
+import { useSelector } from "react-redux";
 
 function App() {
-    // const userRole = useSelector((state)=>state.auth.role)
+    const userRole = useSelector((state)=>state.auth.role)
   return (
     <Router>
       <Routes>
-        
+      
         {/* Public Pages */}
         <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
         <Route path="/about" element={<><Navbar /><About /><Footer /></>} />
@@ -47,7 +48,7 @@ function App() {
         <Route path="/reset-password" element={<><Navbar /><ResetPassword/><Footer /></>} />
 
 
-
+        {userRole==="individual"?(
         <Route path="/user">
         {/* User Dashboard Pages */}
               <Route path="dashboard" element={<><DashboardNavbar /><Dashboard /><Footer /></>} />
@@ -64,19 +65,19 @@ function App() {
               <Route path="payment" element={<><DashboardNavbar /><PaymentPage/><Footer /></>} />
 
         </Route>
-
-
+        ):userRole==="admin"?(
+<Routes>
         {/* Admin Dashboard */}
         <Route path="/admin" element={<><AdminDashboard /><Footer /></>} />
         <Route path="/admin/user-management" element={<><UserManagement /><Footer /></>} />
         <Route path="/admin/feedback-support" element={<><FeedbackSupport /><Footer /></>} />
         <Route path="/admin/subscribers" element={<><Subscribers /><Footer /></>} />
         <Route path="/admin/report" element={<><AdminReport /><Footer /></>} />
+</Routes>
 
-
-
+      ):(
         <Route path="/*" element={<><DashboardNavbar /><PageNotFound/><Footer /></>} />
-
+      )}
       </Routes>
     </Router>
   );
