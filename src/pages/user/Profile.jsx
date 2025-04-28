@@ -63,7 +63,7 @@ const UserProfile = () => {
         };
   // Always include currencyPreference in the payload for premium users
 if (user.plan === "premium") {
-  payload.currencyPreference = values.currencyPreference || 'INR';
+  payload.currencyPreference = values.currencyPreference || 'Not Set';
 }
         if (values.currentPassword && values.newPassword) {
           payload.oldPassword = values.currentPassword;
