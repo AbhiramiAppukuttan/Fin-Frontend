@@ -122,7 +122,7 @@ import ForgotPassword from "./pages/user/ForgotPassword";
 import ResetPassword from "./pages/user/ResetPassword";
 
 function App() {
-  const userRole = useSelector((state) => state.auth);  // Accessing user role from Redux state
+  const userRole = useSelector((state) => state.auth.role);  // Accessing user role from Redux state
 console.log(userRole);
 
   return (
