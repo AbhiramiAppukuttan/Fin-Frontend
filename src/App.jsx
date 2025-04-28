@@ -138,7 +138,7 @@ function App() {
 
         {/* Conditional Routes for User Role */}
         {userRole === "individual" ? (
-          <Route path="/user" element={<><DashboardNavbar /><Footer /></>}>
+          <Route path="/" element={<><DashboardNavbar /><Footer /></>}>
             {/* User Dashboard Pages */}
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="transactions" element={<Transaction />} />
@@ -154,8 +154,9 @@ function App() {
             <Route path="payment" element={<PaymentPage />} />
           </Route>
         ) : userRole === "admin" ? (
-          <Route path="/admin" element={<><AdminDashboard /><Footer /></>}>
+          <Route path="/" element={<><Footer /></>}>
             {/* Admin Dashboard */}
+            <Route path="admin" element={<><AdminDashboard /></>}/>
             <Route path="user-management" element={<UserManagement />} />
             <Route path="feedback-support" element={<FeedbackSupport />} />
             <Route path="subscribers" element={<Subscribers />} />
