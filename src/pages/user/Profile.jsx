@@ -47,7 +47,7 @@ const UserProfile = () => {
       username: user?.username || '', 
       dob: user?.dob || '',
       phone: user?.phone || '', 
-      currencyPreference: user?.currencyPreference || 'INR', // default is INR
+      currencyPreference: user?.currencyPreference || 'Not Set', // default is INR
       currentPassword: '',
       newPassword: '',
     },
