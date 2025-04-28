@@ -15,8 +15,8 @@ const FeedbackSupport = () => {
   });
 
   const pageTitles = {
-    "/user-management": "User Management",
-    "/feedback-support": "Feedback & Support",
+    "/admin/user-management": "User Management",
+    "/admin/feedback-support": "Feedback & Support",
   };
 
   const { data } = useQuery({
@@ -60,9 +60,9 @@ const FeedbackSupport = () => {
               </li>
               <li>
                 <Link
-                  to="/user-management"
+                  to="/admin/user-management"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/user-management" ? "bg-blue-500 text-white" : "hover:bg-gray-100"
+                    location.pathname === "/admin/user-management" ? "bg-blue-500 text-white" : "hover:bg-gray-100"
                   }`}
                 >
                   <Users size={20} /> User Management
@@ -71,9 +71,9 @@ const FeedbackSupport = () => {
 
               <li>
                 <Link
-                  to="/feedback-support"
+                  to="/admin/feedback-support"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/feedback-support"
+                    location.pathname === "/admin/feedback-support"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -83,7 +83,7 @@ const FeedbackSupport = () => {
               </li>
               <li>
                 <Link
-                  to="/subscribers"
+                  to="/admin/subscribers"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
                     location.pathname === "/admin/subscibers" ? "bg-blue-500 text-white" : "hover:bg-gray-100"
                   }`}
@@ -94,11 +94,15 @@ const FeedbackSupport = () => {
               
 
               <li>
-                <Link to="/report" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
+                <Link to="/admin/report" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
-              
+              <li>
+                <Link to="/admin" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
+                  <Settings size={20} /> Settings
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

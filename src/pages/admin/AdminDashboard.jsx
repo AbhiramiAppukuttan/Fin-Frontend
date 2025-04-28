@@ -28,8 +28,8 @@
 //   // Page titles mapping
 //   const pageTitles = {
 //     "/admin": "Dashboard",
-//     "/user-management": "User Management",
-//     "/reports": "Reports",
+//     "/admin/user-management": "User Management",
+//     "/admin/reports": "Reports",
 //     "/admin/settings": "Settings",
 //   };
 
@@ -61,9 +61,9 @@
 //               </li>
 //               <li>
 //               <Link
-//                   to="/user-management"
+//                   to="/admin/user-management"
 //                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-//                     location.pathname === "/user-management"
+//                     location.pathname === "/admin/user-management"
 //                       ? "bg-blue-500 text-white"
 //                       : "hover:bg-gray-100"
 //                   }`}
@@ -75,9 +75,9 @@
 
 //               <li>
 //               <Link
-//                   to="/feedback-support"
+//                   to="/admin/feedback-support"
 //                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-//                     location.pathname === "/feedback-support"
+//                     location.pathname === "/admin/feedback-support"
 //                       ? "bg-blue-500 text-white"
 //                       : "hover:bg-gray-100"
 //                   }`}
@@ -89,7 +89,7 @@
               
 //               <li>
 //               <Link
-//                   to="/feedback-support"
+//                   to="/admin/feedback-support"
 //                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
 //                     location.pathname === "/admin/subscribers"
 //                       ? "bg-blue-500 text-white"
@@ -104,7 +104,7 @@
 
 //               <li>
 //                 <Link
-//                   to="/report"
+//                   to="/admin/report"
 //                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
 //                     location.pathname === ""
 //                       ? "bg-blue-500 text-white"
@@ -261,8 +261,6 @@ const AdminDashboard = () => {
   const pageTitles = {
     "/admin": "Dashboard",
     "/user-management": "User Management",
-    "/feedback-support": "Feedback & Support",
-    "/subscribers": "Subscribers",
     "/report": "Reports",
   };
 
@@ -302,7 +300,7 @@ const AdminDashboard = () => {
                 <Link
                   to="/user-management"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/user-management"
+                    location.pathname === "/admin/user-management"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -314,7 +312,7 @@ const AdminDashboard = () => {
                 <Link
                   to="/feedback-support"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/feedback-support"
+                    location.pathname === "/admin/feedback-support"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -338,7 +336,7 @@ const AdminDashboard = () => {
                 <Link
                   to="/report"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/report"
+                    location.pathname === "/admin/report"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}

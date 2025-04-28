@@ -38,7 +38,7 @@ const Loginpage = () => {
           if (data.role === "individual") {
             navigate("/user/dashboard");
           } else {
-            navigate("/admin/dashboard");
+            navigate("/admin");
           }
         } else {
           setSuccessMessage("Invalid response from server");

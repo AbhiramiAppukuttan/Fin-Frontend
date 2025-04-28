@@ -22,7 +22,7 @@ const verifyUserMutation = useMutation({
 });
 
   const pageTitles = {
-    "/user-management": "User Management",
+    "/admin/user-management": "User Management",
   };
 
   const { data } = useQuery({
@@ -71,9 +71,9 @@ console.log(data);
               </li>
               <li>
                 <Link
-                  to="/user-management"
+                  to="/admin/user-management"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/user-management" ? "bg-blue-500 text-white" : "hover:bg-gray-100"
+                    location.pathname === "/admin/user-management" ? "bg-blue-500 text-white" : "hover:bg-gray-100"
                   }`}
                 >
                   <Users size={20} /> User Management
@@ -81,9 +81,9 @@ console.log(data);
               </li>
               <li>
                 <Link
-                  to="/feedback-support"
+                  to="/admin/feedback-support"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/feedback-support"
+                    location.pathname === "/admin/feedback-support"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -93,7 +93,7 @@ console.log(data);
               </li>
               <li>
                 <Link
-                  to="/subscribers"
+                  to="/admin/feedback-support"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
                     location.pathname === "/admin/subscribers"
                       ? "bg-blue-500 text-white"
@@ -105,11 +105,15 @@ console.log(data);
               </li>
               
               <li>
-                <Link to="/report" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
+                <Link to="/admin/report" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
-              
+              <li>
+                <Link to="/admin" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
+                  <Settings size={20} /> Settings
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

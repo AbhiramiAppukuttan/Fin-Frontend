@@ -67,10 +67,10 @@ const AdminReport = () => {
   else xAxisInterval = 3;
 
   const pageTitles = {
-    "/user-management": "User Management",
-    "/feedback-support": "Feedback & Support",
-    "/subscribers": "Subscribers",
-    "/report": "Reports",
+    "/admin/user-management": "User Management",
+    "/admin/feedback-support": "Feedback & Support",
+    "/admin/subscribers": "Subscribers",
+    "/admin/report": "Reports",
   };
 
   return (
@@ -90,26 +90,30 @@ const AdminReport = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/user-management" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/user-management" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
+                <Link to="/admin/user-management" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/admin/user-management" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
                   <Users size={20} /> User Management
                 </Link>
               </li>
               <li>
-                <Link to="/feedback-support" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/feedback-support" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
+                <Link to="/admin/feedback-support" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/admin/feedback-support" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
                   <Users size={20} /> Feedback & Support
                 </Link>
               </li>
               <li>
-                <Link to="/subscribers" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/admin/subscribers" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
+                <Link to="/admin/subscribers" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/admin/subscribers" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
                   <Users size={20} /> Subscribers
                 </Link>
               </li>
               <li>
-                <Link to="//report" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/report" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
+                <Link to="/admin/report" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/admin/report" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
-              
+              <li>
+                <Link to="/admin" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
+                  <Settings size={20} /> Settings
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
