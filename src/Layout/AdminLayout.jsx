@@ -16,12 +16,12 @@ const AdminLayout = () => {
             <ul className="space-y-4">
               {/* Links will be routed dynamically */}
               <li>
-                <a href="/admin/user-management" className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
+                <a href="/user-management" className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
                   <Users size={20} /> User Management
                 </a>
               </li>
               <li>
-                <a href="/admin/reports" className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
+                <a href="/reports" className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100">
                   <BarChart size={20} /> Reports
                 </a>
               </li>

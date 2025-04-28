@@ -28,8 +28,8 @@
 //   // Page titles mapping
 //   const pageTitles = {
 //     "/admin": "Dashboard",
-//     "/admin/user-management": "User Management",
-//     "/admin/reports": "Reports",
+//     "/user-management": "User Management",
+//     "/reports": "Reports",
 //     "/admin/settings": "Settings",
 //   };
 
@@ -61,9 +61,9 @@
 //               </li>
 //               <li>
 //               <Link
-//                   to="/admin/user-management"
+//                   to="/user-management"
 //                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-//                     location.pathname === "/admin/user-management"
+//                     location.pathname === "/user-management"
 //                       ? "bg-blue-500 text-white"
 //                       : "hover:bg-gray-100"
 //                   }`}
@@ -75,9 +75,9 @@
 
 //               <li>
 //               <Link
-//                   to="/admin/feedback-support"
+//                   to="/feedback-support"
 //                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-//                     location.pathname === "/admin/feedback-support"
+//                     location.pathname === "/feedback-support"
 //                       ? "bg-blue-500 text-white"
 //                       : "hover:bg-gray-100"
 //                   }`}
@@ -89,7 +89,7 @@
               
 //               <li>
 //               <Link
-//                   to="/admin/feedback-support"
+//                   to="/feedback-support"
 //                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
 //                     location.pathname === "/admin/subscribers"
 //                       ? "bg-blue-500 text-white"
@@ -104,7 +104,7 @@
 
 //               <li>
 //                 <Link
-//                   to="/admin/report"
+//                   to="/report"
 //                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
 //                     location.pathname === ""
 //                       ? "bg-blue-500 text-white"
@@ -260,9 +260,10 @@ const AdminDashboard = () => {
 
   const pageTitles = {
     "/admin": "Dashboard",
-    "/admin/user-management": "User Management",
-    "/admin/report": "Reports",
-    "/admin/settings": "Settings",
+    "/user-management": "User Management",
+    "/feedback-support": "Feedback & Support",
+    "/subscribers": "Subscribers",
+    "/report": "Reports",
   };
 
   const pieData = [
@@ -299,9 +300,9 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/admin/user-management"
+                  to="/user-management"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/admin/user-management"
+                    location.pathname === "/user-management"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -311,9 +312,9 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/admin/feedback-support"
+                  to="/feedback-support"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/admin/feedback-support"
+                    location.pathname === "/feedback-support"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -323,7 +324,7 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/admin/subscribers"
+                  to="/subscribers"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
                     location.pathname === "/admin/subscribers"
                       ? "bg-blue-500 text-white"
@@ -335,9 +336,9 @@ const AdminDashboard = () => {
               </li>
               <li>
                 <Link
-                  to="/admin/report"
+                  to="/report"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/admin/report"
+                    location.pathname === "/report"
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-100"
                   }`}
@@ -345,18 +346,7 @@ const AdminDashboard = () => {
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/admin/settings"
-                  className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/admin/settings"
-                      ? "bg-blue-500 text-white"
-                      : "hover:bg-gray-100"
-                  }`}
-                >
-                  <Settings size={20} /> Settings
-                </Link>
-              </li>
+              
             </ul>
           </nav>
         </div>
@@ -454,14 +444,7 @@ const AdminDashboard = () => {
                 </div>
               }
             />
-            <Route
-              path="/settings"
-              element={
-                <div className="bg-white p-6 shadow-md rounded-lg">
-                  Settings Content
-                </div>
-              }
-            />
+            
           </Routes>
         </main>
       </div>
