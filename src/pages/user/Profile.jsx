@@ -273,7 +273,7 @@ if (user.plan === "premium") {
       </select>
   ) : (
     <div>
-      <p className="text-gray-700">{user?.currencyPreference || 'INR'}</p>
+      <p className="text-gray-700">{user?.currencyPreference || 'Not Set'}</p>
       <p className="text-red-500 text-sm mt-1">Currency preference editing is only available for Premium users.</p>
     </div>
   )
