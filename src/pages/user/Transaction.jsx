@@ -151,7 +151,7 @@ const Transaction = () => {
       }catch (error) {
         console.log(error);
         
-        setErrorMessage(error?.message || 'Something went wrong!');
+        setErrorMessage(error.response.data.message || 'Something went wrong!');
       }
       
     }
