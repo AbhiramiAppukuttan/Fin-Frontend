@@ -251,9 +251,11 @@ const dispatch=useDispatch()
 const navigate=useNavigate()
 const handleLogout = () => {
   dispatch(logoutAction());
+  sessionStorage.clear();
   navigate("/");
-  sessionStorage.clear()
+  window.location.reload(); // <- force page refresh
 };
+
   const users = Array.isArray(data?.activeUsers) ? data.activeUsers : [];
   const userCount = users.length;
 
