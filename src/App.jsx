@@ -36,8 +36,9 @@ function App() {
     const userRole = useSelector((state)=>state.auth?.user?.role)
   return (
     <Router>
-      <Routes>
+      
         {userRole==="individual"?(
+          <Routes>
         <Route path="/user">
         {/* User Dashboard Pages */}
               <Route path="dashboard" element={<><DashboardNavbar /><Dashboard /><Footer /></>} />
@@ -55,6 +56,7 @@ function App() {
               <Route path="*" element={<><DashboardNavbar /><PageNotFound/><Footer /></>} />
 
         </Route>
+        </Routes>
         ): userRole === "admin" ? (
       <Routes>
         {/* Admin Dashboard */}
@@ -79,9 +81,8 @@ function App() {
         <Route path="/reset-password" element={<><Navbar /><ResetPassword/><Footer /></>} />
         <Route path="*" element={<><Navbar /><Loginpage /><Footer /></>} />
 
-        </Routes>
-        }
-        </Routes>
+      </Routes>
+      }
     </Router>
   );
 }
