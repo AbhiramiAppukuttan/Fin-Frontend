@@ -49,7 +49,7 @@ function App() {
 
 
         {userRole==="individual"?(
-        <Route path="/user">
+        <Route path="/user/">
         {/* User Dashboard Pages */}
               <Route path="dashboard" element={<><DashboardNavbar /><Dashboard /><Footer /></>} />
               <Route path="transactions" element={<><DashboardNavbar /><Transaction /><Footer /></>} />
