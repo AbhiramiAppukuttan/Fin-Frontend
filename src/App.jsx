@@ -46,10 +46,11 @@ function App() {
         <Route path="/signup" element={<><Navbar /><SignupPage /><Footer /></>} />
         <Route path="/forgot-password" element={<><Navbar /><ForgotPassword/><Footer /></>} />
         <Route path="/reset-password" element={<><Navbar /><ResetPassword/><Footer /></>} />
+        <Route path="*" element={<><Navbar /><Loginpage /><Footer /></>} />
 
 
         {userRole==="individual"?(
-        <Route path="/user/">
+        <Route path="/user">
         {/* User Dashboard Pages */}
               <Route path="dashboard" element={<><DashboardNavbar /><Dashboard /><Footer /></>} />
               <Route path="transactions" element={<><DashboardNavbar /><Transaction /><Footer /></>} />
@@ -63,9 +64,10 @@ function App() {
               <Route path="feedbackform" element={<><DashboardNavbar /><FeedbackForm/><Footer /></>} />
               <Route path="subscription" element={<><DashboardNavbar /><SubscriptionPage/><Footer /></>} />
               <Route path="payment" element={<><DashboardNavbar /><PaymentPage/><Footer /></>} />
+              <Route path="*" element={<><DashboardNavbar /><PageNotFound/><Footer /></>} />
 
         </Route>
-        ):userRole==="admin"?(
+        ):(
 <Routes>
         {/* Admin Dashboard */}
         <Route path="/admin" element={<><AdminDashboard /><Footer /></>} />
@@ -73,10 +75,9 @@ function App() {
         <Route path="/admin/feedback-support" element={<><FeedbackSupport /><Footer /></>} />
         <Route path="/admin/subscribers" element={<><Subscribers /><Footer /></>} />
         <Route path="/admin/report" element={<><AdminReport /><Footer /></>} />
+        <Route path="*" element={<><DashboardNavbar /><PageNotFound/><Footer /></>} />
 </Routes>
 
-      ):(
-        <Route path="/*" element={<><DashboardNavbar /><PageNotFound/><Footer /></>} />
       )}
       </Routes>
     </Router>
