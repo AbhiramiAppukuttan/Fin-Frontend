@@ -36,21 +36,6 @@ function App() {
     const userRole = useSelector((state)=>state.auth?.payload?.role)
   return (
     <Router>
-      <Routes>
-      
-        {/* Public Pages */}
-        <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
-        <Route path="/about" element={<><Navbar /><About /><Footer /></>} />
-        <Route path="/features" element={<><Navbar /><Feature /><Footer /></>} />
-        <Route path="/login" element={<><Navbar /><Loginpage /><Footer /></>} />
-        <Route path="/signup" element={<><Navbar /><SignupPage /><Footer /></>} />
-        <Route path="/forgot-password" element={<><Navbar /><ForgotPassword/><Footer /></>} />
-        <Route path="/reset-password" element={<><Navbar /><ResetPassword/><Footer /></>} />
-        <Route path="*" element={<><Navbar /><Loginpage /><Footer /></>} />
-
-        </Routes>
-
-
         {userRole==="individual"?(
         <Route path="/user">
         {/* User Dashboard Pages */}
@@ -69,7 +54,7 @@ function App() {
               <Route path="*" element={<><DashboardNavbar /><PageNotFound/><Footer /></>} />
 
         </Route>
-        ):(
+        ): userRole === "admin" ? (
       <Routes>
         {/* Admin Dashboard */}
         <Route path="/admin" element={<><AdminDashboard /><Footer /></>} />
@@ -80,7 +65,21 @@ function App() {
         <Route path="*" element={<><DashboardNavbar /><PageNotFound/><Footer /></>} />
       </Routes>
 
-      )}
+      ):
+      <Routes>
+      
+        {/* Public Pages */}
+        <Route path="/" element={<><Navbar /><Home /><Footer /></>} />
+        <Route path="/about" element={<><Navbar /><About /><Footer /></>} />
+        <Route path="/features" element={<><Navbar /><Feature /><Footer /></>} />
+        <Route path="/login" element={<><Navbar /><Loginpage /><Footer /></>} />
+        <Route path="/signup" element={<><Navbar /><SignupPage /><Footer /></>} />
+        <Route path="/forgot-password" element={<><Navbar /><ForgotPassword/><Footer /></>} />
+        <Route path="/reset-password" element={<><Navbar /><ResetPassword/><Footer /></>} />
+        <Route path="*" element={<><Navbar /><Loginpage /><Footer /></>} />
+
+        </Routes>
+        }
     </Router>
   );
 }
