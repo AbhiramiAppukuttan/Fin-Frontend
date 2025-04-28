@@ -123,6 +123,7 @@ import ResetPassword from "./pages/user/ResetPassword";
 
 function App() {
   const userRole = useSelector((state) => state.auth.role);  // Accessing user role from Redux state
+console.log(userRole);
 
   return (
     <Router>
@@ -165,7 +166,7 @@ function App() {
         ) : null}
 
         {/* Catch All Route for Invalid Pages */}
-        <Route path="/*" element={<><DashboardNavbar /><PageNotFound /><Footer /></>} />
+        <Route path="/*" element={<><PageNotFound /><Footer /></>} />
       </Routes>
     </Router>
   );
