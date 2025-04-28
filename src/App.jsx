@@ -33,7 +33,7 @@ import ResetPassword from "./pages/user/ResetPassword";
 import { useSelector } from "react-redux";
 
 function App() {
-    const userRole = useSelector((state)=>state.auth.role)
+    const userRole = useSelector((state)=>state.auth?.payload?.role)
   return (
     <Router>
       <Routes>
