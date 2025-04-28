@@ -180,7 +180,7 @@ function App() {
 
         {/* Admin Pages */}
         {userRole === "admin" && (
-          <Route path="/admin" element={<AdminLayout />}>
+          <Route path="/admin/" element={<AdminLayout />}>
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="user-management" element={<UserManagement />} />
             <Route path="feedback-support" element={<FeedbackSupport />} />
