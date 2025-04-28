@@ -48,6 +48,8 @@ function App() {
         <Route path="/reset-password" element={<><Navbar /><ResetPassword/><Footer /></>} />
         <Route path="*" element={<><Navbar /><Loginpage /><Footer /></>} />
 
+        </Routes>
+
 
         {userRole==="individual"?(
         <Route path="/user">
@@ -79,7 +81,6 @@ function App() {
       </Routes>
 
       )}
-      </Routes>
     </Router>
   );
 }
