@@ -51,8 +51,7 @@ const DashboardNavbar = () => {
             <Link to="/user/profile">
               <FaUserCircle className="text-2xl hover:text-gray-400 cursor-pointer" />
             </Link>
-            <button onClick={()=>navigate("")}><FaPowerOff /></button>
-            <Link to="/" className="text-xl hover:text-blue-400 cursor-pointer pt-1">
+            <Link to="/login" className="text-xl hover:text-blue-400 cursor-pointer pt-1">
               <FaPowerOff />
             </Link>
           </div>
