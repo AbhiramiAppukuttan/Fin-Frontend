@@ -36,6 +36,7 @@ function App() {
     const userRole = useSelector((state)=>state.auth?.user?.role)
   return (
     <Router>
+      <Routes>
         {userRole==="individual"?(
         <Route path="/user">
         {/* User Dashboard Pages */}
@@ -80,6 +81,7 @@ function App() {
 
         </Routes>
         }
+        </Routes>
     </Router>
   );
 }
