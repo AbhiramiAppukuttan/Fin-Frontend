@@ -5,6 +5,7 @@ import { FaBars, FaTimes, FaUserCircle, FaBell, FaPowerOff } from "react-icons/f
 import { useQuery } from "@tanstack/react-query";
 import NotificationPage from "../pages/user/NotificationPage";
 import { viewNotificationAPI } from "../services/notificationServices";
+import { logoutAction } from "../redux/authSlice";
 
 const DashboardNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +69,7 @@ const DashboardNavbar = () => {
             <Link to="/user/dashboard" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Home</Link>
             <Link to="/user/profile" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Profile</Link>
             <Link to="/user/settings" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Settings</Link>
-            <Link to="/" className="hover:text-gray-400" onClick={() => setIsOpen(false)}>Logout</Link>
+            <Link to="/" className="hover:text-gray-400" onClick={() => logoutAction()}>Logout</Link>
           </div>
         )}
       </nav>
