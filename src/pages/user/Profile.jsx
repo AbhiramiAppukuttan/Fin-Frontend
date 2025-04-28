@@ -278,7 +278,7 @@ if (user.plan === "premium") {
     </div>
   )
 ) : (
-  <p>{user?.currencyPreference || 'INR'}</p>
+  <p>{user?.currencyPreference || 'Not Set'}</p>
 )}
 
           </div>
