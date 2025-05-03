@@ -12,7 +12,7 @@ const Home = () => {
         <img 
           src={BodyImage} 
           alt="Finance Background" 
-          className="w-full h-400 object-cover " 
+          className="w-full h-200 object-cover " 
         />
       </div>
 
