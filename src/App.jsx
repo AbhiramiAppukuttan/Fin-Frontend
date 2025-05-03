@@ -64,8 +64,8 @@ function App() {
         <Route path="/admin/user-management" element={<><UserManagement /><Footer /></>} />
         <Route path="/admin/feedback-support" element={<><FeedbackSupport /><Footer /></>} />
         <Route path="/admin/subscribers" element={<><Subscribers /><Footer /></>} />
-        <Route path="/admin/report" element={<><AdminReport /><Footer /></>} />
-        <Route path="*" element={<><DashboardNavbar /><PageNotFound/><Footer /></>} />
+        <Route path="/admin/reports" element={<><AdminReport /><Footer /></>} />
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
 
       ):

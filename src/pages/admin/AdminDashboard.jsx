@@ -275,7 +275,7 @@ const handleLogout = () => {
     "/admin": "Dashboard",
     "/admin/user-management": "User Management",
     "/admin/reports": "Reports",
-    "/admin/settings": "Settings",
+   
   };
 
   const pieData = [

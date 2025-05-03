@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DashboardImage from "../../assets/dashboard-img.jpg"; 
+import DashboardImage from "../../assets/background-image.jpg"; 
 import { useQuery } from '@tanstack/react-query';
 import { viewTransactionAPI } from '../../services/transactionServices';
 import { viewBudgetAPI } from '../../services/budgetServices';

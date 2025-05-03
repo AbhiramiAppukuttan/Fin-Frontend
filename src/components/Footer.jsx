@@ -5,7 +5,7 @@ import QRCode from "react-qr-code";
 const Footer = () => {
   return (
     <footer className="bg-blue-950 text-gray-300 py-16">
-    <div className="container mx-auto px-8 md:px-16 lg:px-24 grid md:grid-cols-5 gap-10">
+    <div className="container mx-auto px-8 md:px-16 lg:px-24 grid md:grid-cols-5 gap-10 text-center">
       
       {/* Company Info */}
       <div>
