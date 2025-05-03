@@ -354,18 +354,7 @@ const handleLogout = () => {
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/admin/settings"
-                  className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                    location.pathname === "/admin/settings"
-                      ? "bg-blue-500 text-white"
-                      : "hover:bg-gray-100"
-                  }`}
-                >
-                  <Settings size={20} /> Settings
-                </Link>
-              </li>
+            
             </ul>
           </nav>
         </div>

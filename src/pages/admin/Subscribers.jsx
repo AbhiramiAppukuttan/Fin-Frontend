@@ -99,11 +99,7 @@ const subscribers=data?.users
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
-              <li>
-                <Link to="/admin" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
-                  <Settings size={20} /> Settings
-                </Link>
-              </li>
+              
             </ul>
           </nav>
         </div>

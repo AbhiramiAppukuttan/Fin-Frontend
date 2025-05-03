@@ -18,11 +18,13 @@ const DashboardNavbar = () => {
     queryFn: viewNotificationAPI,
   });
 const dispatch=useDispatch()
+
 const handleLogout = () => {
-  dispatch(logoutAction());     // Clear Redux state
-  sessionStorage.clear();       // Clear local storage/session storage
-  window.location.href = "/";   // Full reload to homepage
+  dispatch(logoutAction());
+  sessionStorage.clear();
+  navigate("/login"); // Navigate without full page reload
 };
+
   // Count unread notifications
   const unreadCount = notifications.filter((notif) => !notif.isRead).length;
 
