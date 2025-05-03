@@ -157,7 +157,8 @@ const FeedbackSupport = () => {
                         <td className="py-2">{new Date(complaint.date).toLocaleDateString()}</td>
                         <td className="py-2">{complaint.user.username}</td>
                         <td className="py-2">{complaint.type}</td>
-                        <td className="py-2 text-left break-all whitespace-normal max-w-xs">
+                      
+                        <td className="py-2 text-left max-w-xs whitespace-pre-wrap break-words">
                           {complaint.description}
                         </td>
                         <td className="py-2">

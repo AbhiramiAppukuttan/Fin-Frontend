@@ -290,8 +290,9 @@ const handleLogout = () => {
       <aside className="w-72 bg-white shadow-lg flex flex-col p-5">
         <div>
           {/* Logo */}
-          <div className="flex items-center gap-3 mb-6">
-            <img src="/logo-img.png" alt="Logo" className="h-6 w-6" />
+         
+          <div className="flex items-center gap-2 mb-6">
+            <img src="/logo-img.png" alt="Logo" className="h-8 w-8" />
             <h1 className="text-xl font-bold text-gray-800">Finance Admin</h1>
           </div>
 
