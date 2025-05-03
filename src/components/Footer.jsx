@@ -60,12 +60,12 @@ const Footer = () => {
       </div>
 
       {/* QR Code */}
-      <div className="text-center">
+      {/* <div className="text-center">
         <h4 className="text-lg font-semibold text-white">Scan & Download</h4>
         <div className="mt-4 bg-white p-2 inline-block rounded-lg shadow-lg">
           <QRCode value="https://fin-frontend-seven.vercel.app" size={100} />
         </div>
-      </div>
+      </div> */}
     </div>
 
     {/* Newsletter Subscription */}
