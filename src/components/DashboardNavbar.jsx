@@ -22,7 +22,7 @@ const dispatch=useDispatch()
 const handleLogout = () => {
   dispatch(logoutAction());
   sessionStorage.clear();
-  navigate("/login"); // Navigate without full page reload
+  navigate("/login");  // Navigate immediately
 };
 
   // Count unread notifications
