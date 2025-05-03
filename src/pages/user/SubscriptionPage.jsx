@@ -139,7 +139,6 @@ const SubscriptionPage = () => {
     },
   };
   
-
   const handleSubscribe = (planKey) => {
     const plan = plans[planKey];
     navigate(`/user/payment?plan=${planKey}&price=${plan.price}`);

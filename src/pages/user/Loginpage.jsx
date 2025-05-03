@@ -98,13 +98,12 @@ const Loginpage = () => {
           </a>
 
   </div>
-          <button 
+            <button 
             type="submit"
             className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition"
             disabled={isPending || formik.isSubmitting}
           >
-            {isPending ? 'Logging you in...' : 'Sign Up'}
-            Login
+            {isPending || formik.isSubmitting ? 'Logging you in...' : 'Login'}
           </button>
         </form>
         
