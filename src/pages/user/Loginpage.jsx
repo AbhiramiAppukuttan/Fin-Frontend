@@ -7,7 +7,6 @@ import { loginUserAPI } from '../../services/userServices';
 import { loginUserAction } from '../../redux/authSlice';
 import { useFormik } from 'formik';
 import { advSchema } from '../../schema';
-import { isPending } from '@reduxjs/toolkit';
 
 
 const Loginpage = () => {
@@ -15,7 +14,7 @@ const Loginpage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   
-  const { mutateAsync, isError, error, isSuccess } = useMutation({
+  const { mutateAsync, isError, error, isSuccess, isPending } = useMutation({
     mutationFn: loginUserAPI,
     mutationKey: ["login-user"],
   });
@@ -98,13 +97,13 @@ const Loginpage = () => {
           </a>
 
   </div>
-            <button 
-            type="submit"
-            className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition"
-            disabled={isPending || formik.isSubmitting}
-          >
-            {isPending || formik.isSubmitting ? 'Logging you in...' : 'Login'}
-          </button>
+  <button 
+  type="submit"
+  className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition"
+  disabled={isPending || formik.isSubmitting}
+>
+  {isPending || formik.isSubmitting ? 'Logging you in...' : 'Login'}
+</button>
         </form>
         
         <p className="text-center text-gray-600 mt-4">
