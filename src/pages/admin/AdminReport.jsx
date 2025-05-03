@@ -26,15 +26,7 @@ const groupTransactionStatsByMonth = (transactions = []) => {
     monthlyCount[month] = (monthlyCount[month] || 0) + 1;
   });
 
-  const handleLogout = () => {
-    dispatch(logoutAction());
-    // Clear all storage
-    sessionStorage.clear();
-    localStorage.clear(); // Add this if you use localStorage
-    navigate("/login");
-    window.location.reload(); // Force a full page refresh to reset all state
-  };
-  
+
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -65,6 +57,18 @@ const AdminReport = () => {
     queryFn: viewReportAPI,
   });
 
+  const navigate = useNavigate(); // Add this
+  const dispatch = useDispatch(); // Add this
+  
+  const handleLogout = () => {
+    dispatch(logoutAction());
+    // Clear all storage
+    sessionStorage.clear();
+    localStorage.clear(); // Add this if you use localStorage
+    navigate("/login");
+    window.location.reload(); // Force a full page refresh to reset all state
+  };
+  
   const userTimeline = mapUserTimeline(report?.users || []);
   const transactionStats = groupTransactionStatsByMonth(report?.transactions || []);
 
@@ -133,7 +137,7 @@ const AdminReport = () => {
                     <button onClick={handleLogout} className="hover:text-gray-400">
                       <FaPowerOff />
                     </button>
-          </div>
+                </div>
         </nav>
 
         {/* Report Content */}

@@ -5,15 +5,15 @@ import QRCode from "react-qr-code";
 const Footer = () => {
   return (
     <footer className="bg-blue-950 text-gray-300 py-16">
-    <div className="container mx-auto px-8 md:px-16 lg:px-24 grid md:grid-cols-5 gap-10 text-center">
+<div className="container mx-auto px-8 md:px-16 lg:px-24 grid md:grid-cols-4 gap-10 text-center">
       
       {/* Company Info */}
-      <div>
-        <h3 className="text-3xl font-bold text-white">FinTrack</h3>
-        <p className="mt-3 text-gray-400">
-          Empowering you to make smarter financial decisions with ease.
-        </p>
-      </div>
+      <div className="md:col-span-5 text-center mx-auto">
+  <h3 className="text-3xl font-bold text-white">FinTrack</h3>
+  <p className="mt-3 text-gray-400">
+    Empowering you to make smarter financial decisions with ease.
+  </p>
+</div>
 
       {/* Quick Links */}
       <div>
