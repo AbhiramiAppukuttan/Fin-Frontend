@@ -93,14 +93,16 @@ const Loginpage = () => {
           </div>
           <div className="text-right">
           <a href="/forgot-password" className="text-blue-500 text-sm font-medium hover:underline">
-  Forgot Password
-</a>
+            Forgot Password
+          </a>
 
   </div>
           <button 
             type="submit"
             className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition"
+            disabled={isPending || formik.isSubmitting}
           >
+            {isPending ? 'Logging you in...' : 'Sign Up'}
             Login
           </button>
         </form>

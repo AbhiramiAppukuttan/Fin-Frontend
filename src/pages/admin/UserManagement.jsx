@@ -43,7 +43,14 @@ console.log(data);
     user.username?.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
-
+  const handleLogout = () => {
+    dispatch(logoutAction());
+    // Clear all storage
+    sessionStorage.clear();
+    localStorage.clear(); // Add this if you use localStorage
+    navigate("/login");
+    window.location.reload(); // Force a full page refresh to reset all state
+  };
 
   return (
     <div className="flex  bg-gray-100">
@@ -124,10 +131,10 @@ console.log(data);
           </h2>
 
           {/* Right-side Icons */}
-          <div className="flex items-center space-x-6 ">
-            <Link to="/" className="text-xl hover:text-blue-400 cursor-pointer pt-1">
+          <div className="flex items-center space-x-6">
+            <button onClick={handleLogout} className="hover:text-gray-400">
               <FaPowerOff />
-            </Link>
+            </button>
           </div>
         </nav>
 

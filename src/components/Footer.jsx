@@ -63,13 +63,13 @@ const Footer = () => {
       <div className="text-center">
         <h4 className="text-lg font-semibold text-white">Scan & Download</h4>
         <div className="mt-4 bg-white p-2 inline-block rounded-lg shadow-lg">
-          <QRCode value="https://fintrack.com" size={100} />
+          <QRCode value="https://fin-frontend-seven.vercel.app" size={100} />
         </div>
       </div>
     </div>
 
     {/* Newsletter Subscription */}
-    <div className="mt-12 border-t border-gray-700 pt-6 text-center">
+    {/* <div className="mt-12 border-t border-gray-700 pt-6 text-center">
       <h4 className="text-xl font-semibold text-white">Subscribe to Our Newsletter</h4>
       <p className="text-gray-400 text-sm mt-2">Stay updated with the latest financial insights and news.</p>
       <div className="mt-4 flex justify-center">
@@ -82,16 +82,16 @@ const Footer = () => {
           Subscribe
         </button>
       </div>
-    </div>
+    </div> */}
 
     {/* Social Media & Copyright */}
     <div className="mt-12 text-center text-gray-500 text-sm border-t border-gray-700 pt-6">
       <div className="flex justify-center space-x-4">
       {[
-          { icon: <FaFacebook className="text-blue-600" />, link: "#" },
-          { icon: <FaTwitter className="text-blue-400" />, link: "#" },
-          { icon: <FaLinkedin className="text-blue-700" />, link: "#" },
-          { icon: <FaInstagram className="text-pink-500" />, link: "#" },
+          { icon: <FaFacebook className="text-blue-600" />, link: "https://www.facebook.com/" },
+          { icon: <FaTwitter className="text-blue-400" />, link: "https://www.twitter.com/" },
+          { icon: <FaLinkedin className="text-blue-700" />, link: "https://www.linkedin.com/" },
+          { icon: <FaInstagram className="text-pink-500" />, link: "https://www.instagram.com/" },
       ].map((social, index) => (
           <a key={index} href={social.link} className="hover:opacity-75 transition text-2xl">
           {social.icon}

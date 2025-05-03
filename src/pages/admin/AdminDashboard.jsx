@@ -249,10 +249,14 @@ const AdminDashboard = () => {
   });
 const dispatch=useDispatch()
 const navigate=useNavigate()
+
 const handleLogout = () => {
-  dispatch(logoutAction());     // Clear Redux state
-  sessionStorage.clear();       // Clear local storage/session storage
-  window.location.href = "/";   // Full reload to homepage
+  dispatch(logoutAction());
+  // Clear all storage
+  sessionStorage.clear();
+  localStorage.clear(); // Add this if you use localStorage
+  navigate("/login");
+  window.location.reload(); // Force a full page refresh to reset all state
 };
 
   const users = Array.isArray(data?.activeUsers) ? data.activeUsers : [];
@@ -369,8 +373,8 @@ const handleLogout = () => {
           </h2>
           <div className="flex items-center space-x-6">
           <button onClick={handleLogout} className="hover:text-gray-400">
-      <FaPowerOff />
-    </button>
+            <FaPowerOff />
+          </button>
       </div>
         </nav>
 

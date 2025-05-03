@@ -33,7 +33,15 @@ const FeedbackSupport = () => {
     },
   });
   
-  
+  const handleLogout = () => {
+    dispatch(logoutAction());
+    // Clear all storage
+    sessionStorage.clear();
+    localStorage.clear(); // Add this if you use localStorage
+    navigate("/login");
+    window.location.reload(); // Force a full page refresh to reset all state
+  };
+
   return (
     <div className="flex  bg-gray-100">
       {/* Sidebar */}
@@ -113,11 +121,10 @@ const FeedbackSupport = () => {
           </h2>
 
           {/* Right-side Icons */}
-          <div className="flex items-center space-x-6 ">
-            {/* Logout Button */}
-              <Link to="/" className="text-xl hover:text-blue-400 cursor-pointer pt-1">
-                <FaPowerOff />
-              </Link>
+          <div className="flex items-center space-x-6">
+            <button onClick={handleLogout} className="hover:text-gray-400">
+              <FaPowerOff />
+            </button>
           </div>
         </nav>
 

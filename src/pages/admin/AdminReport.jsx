@@ -26,6 +26,15 @@ const groupTransactionStatsByMonth = (transactions = []) => {
     monthlyCount[month] = (monthlyCount[month] || 0) + 1;
   });
 
+  const handleLogout = () => {
+    dispatch(logoutAction());
+    // Clear all storage
+    sessionStorage.clear();
+    localStorage.clear(); // Add this if you use localStorage
+    navigate("/login");
+    window.location.reload(); // Force a full page refresh to reset all state
+  };
+  
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -121,9 +130,9 @@ const AdminReport = () => {
         <nav className="py-4 px-6 bg-white shadow-md flex justify-between items-center fixed top-0 left-72 right-0 z-10">
           <h2 className="text-xl font-semibold text-gray-800">{pageTitles[location.pathname]}</h2>
           <div className="flex items-center space-x-6">
-            <Link to="/" className="text-xl hover:text-blue-400 cursor-pointer pt-1">
-              <FaPowerOff />
-            </Link>
+                    <button onClick={handleLogout} className="hover:text-gray-400">
+                      <FaPowerOff />
+                    </button>
           </div>
         </nav>
 

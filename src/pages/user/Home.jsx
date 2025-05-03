@@ -34,7 +34,7 @@ const Home = () => {
         <div className="mt-8">
           <Link to="/login">
                     <button className="bg-gradient-to-r from-green-400 to-blue-500 text-white hidden md:inline transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full">
-                      Get Started
+                      Join us Today
                     </button>
                   </Link>
         </div>

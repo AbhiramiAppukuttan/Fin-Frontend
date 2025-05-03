@@ -126,15 +126,15 @@ const Dashboard = () => {
           {/* Example Cards - Replace with user data */}
           <div className={`bg-gradient-to-r from-blue-500 to-green-400 text-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-105`}>
             <h3 className="text-xl font-semibold">Total Balance</h3>
-            <p className={`text-2xl font-bold mt-2 ${totalBalance < 0 ? 'text-red-400' : ''}`}>
-              ${totalBalance.toFixed(2)}
+            <p className={`text-2xl font-bold mt-2 {totalBalance < 0 ? 'text-red-400' : ''}`}>
+              {totalBalance.toFixed(2)}
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-yellow-400 to-red-500 text-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
             <h3 className="text-xl font-semibold">Active Budget</h3>
             <p className="text-2xl font-bold mt-2">
-                ${activeBudget?.limit ?? 'No active budget'}/Month
+                {activeBudget?.limit ?? 'No active budget'}/Month
               </p>
             
           </div>
@@ -142,7 +142,7 @@ const Dashboard = () => {
           <div className="bg-gradient-to-r from-purple-600 to-pink-500 text-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-105">
             <h3 className="text-xl font-semibold">Savings</h3>
             <p className="text-2xl font-bold mt-2">
-                ${activeSavings?.goalAmount ?? 'No active budget'}/Month
+                {activeSavings?.goalAmount ?? 'No active budget'}/Month
               </p>
           </div>
         </div>
@@ -162,7 +162,7 @@ const Dashboard = () => {
   <div className="bg-white text-black p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all ease-in-out duration-300 transform hover:scale-105">
     <h3 className="text-2xl font-semibold mb-4">Total Debt</h3>
     <p className="text-3xl font-bold text-blue-600 mt-2">
-      ${transactions?.filter(t => t.type === 'expense').reduce((acc, t) => acc + t.amount, 0) || 0}
+      {transactions?.filter(t => t.type === 'expense').reduce((acc, t) => acc + t.amount, 0) || 0}
     </p>
     <p className="text-sm text-gray-600 mt-3">Your total outstanding debt across all accounts.</p>
   </div>
@@ -172,7 +172,7 @@ const Dashboard = () => {
     <h3 className="text-2xl font-semibold mb-4">Savings Rate</h3>
     <p className="text-3xl font-bold text-green-600 mt-2">
   {currentMonthIncome > 0 
-    ? `${((currentMonthSavings / currentMonthIncome) * 100).toFixed(2)}%` 
+    ? `{((currentMonthSavings / currentMonthIncome) * 100).toFixed(2)}%` 
     : '0%'}
 </p>
 
@@ -183,7 +183,7 @@ const Dashboard = () => {
   <div className="bg-white text-black p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all ease-in-out duration-300 transform hover:scale-105">
     <h3 className="text-2xl font-semibold mb-4">Retirement Fund</h3>
     <p className="text-3xl font-bold text-indigo-600 mt-2">
-      ${savings?.find(s => s.title === 'retirement')?.savedAmount || 0}
+      {savings?.find(s => s.title === 'retirement')?.savedAmount || 0}
     </p>
     <p className="text-sm text-gray-600 mt-3">Your current retirement savings.</p>
   </div>
@@ -192,7 +192,7 @@ const Dashboard = () => {
   <div className="bg-white text-black p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all ease-in-out duration-300 transform hover:scale-105">
     <h3 className="text-2xl font-semibold mb-4">Monthly Expenses</h3>
     <p className="text-3xl font-bold text-red-600 mt-2">
-  ${currentMonthExpenses}
+  {currentMonthExpenses}
 </p>
     <p className="text-sm text-gray-600 mt-3">Your total spending this month.</p>
   </div>
@@ -202,7 +202,7 @@ const Dashboard = () => {
     <h3 className="text-2xl font-semibold mb-4">Financial Goal Progress</h3>
     <p className="text-3xl font-bold text-green-600 mt-2">
   {currentMonthIncome > 0 
-    ? `${((currentMonthSavings / currentMonthIncome) * 100).toFixed(2)}%` 
+    ? `{((currentMonthSavings / currentMonthIncome) * 100).toFixed(2)}%` 
     : '0%'}
 </p>
     <p className="text-sm text-gray-600 mt-3">Track your progress towards savings goals.</p>
