@@ -419,28 +419,28 @@ const handleLogout = () => {
 
               {/* Pie Chart */}
               {/* Pie Chart */}
-<div className="bg-white p-6 shadow-md rounded-lg w-full max-w-4xl mx-auto">
-  <h3 className="text-xl font-semibold text-center mb-4">User & Transaction Overview</h3>
-  <ResponsiveContainer width="100%" height={300}>
-    <PieChart>
-      <Pie
-        data={pieData}
-        cx="50%"
-        cy="50%"
-        outerRadius={100}
-        fill="#8884d8"
-        dataKey="value"
-        label
-      >
-        {pieData.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
-      </Pie>
-      <Tooltip />
-      <Legend />
-    </PieChart>
-  </ResponsiveContainer>
-</div>
+            <div className="bg-white p-6 shadow-md rounded-lg w-full max-w-4xl mx-auto">
+              <h3 className="text-xl font-semibold text-center mb-4">User & Transaction Overview</h3>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={pieData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
+                    label
+                  >
+                    {pieData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
 
             </>
           )}

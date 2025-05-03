@@ -23,6 +23,9 @@ const verifyUserMutation = useMutation({
 
   const pageTitles = {
     "/admin/user-management": "User Management",
+    "/admin/feedback-support": "Feedback & Support",
+    "/admin/subscribers": "Subscribers",
+    "/admin/reports": "Reports",
   };
 
   const { data } = useQuery({
@@ -112,7 +115,11 @@ console.log(data);
               </li>
               
               <li>
-                <Link to="/admin/reports" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
+                <Link 
+                  to="/admin/report" 
+                  className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
+                  location.pathname === "/admin/report" ? "bg-blue-500 text-white" : "hover:bg-gray-100"
+                  }`}>                  
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
