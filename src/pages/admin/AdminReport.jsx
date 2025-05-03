@@ -119,7 +119,7 @@ const AdminReport = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/admin/reports" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/admin/report" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
+                <Link to="/admin/reports" className={`flex items-center gap-3 p-3 rounded-lg transition ${location.pathname === "/admin/reports" ? "bg-blue-500 text-white" : "hover:bg-gray-100 text-gray-700"}`}>
                   <BarChart size={20} /> Reports
                 </Link>
               </li>

@@ -358,6 +358,20 @@ const handleLogout = () => {
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
+
+              
+              <li>
+                <Link
+                  to="/admin/feedback-support"
+                  className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
+                    location.pathname === "/admin/feedback-support"
+                      ? "bg-blue-500 text-white"
+                      : "hover:bg-gray-100"
+                  }`}
+                >
+                  <Users size={20} /> Feedback & Support
+                </Link>
+              </li>
             
             </ul>
           </nav>

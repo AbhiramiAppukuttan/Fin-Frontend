@@ -103,9 +103,9 @@ const subscribers=data?.users
 
               <li>
                 <Link 
-                to="/admin/report" 
+                to="/admin/reports" 
                 className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
-                  location.pathname === "/admin/report" ? "bg-blue-500 text-white" : "hover:bg-gray-100"
+                  location.pathname === "/admin/reports" ? "bg-blue-500 text-white" : "hover:bg-gray-100"
                 }`}>                  
                   <BarChart size={20} /> Reports
                 </Link>
