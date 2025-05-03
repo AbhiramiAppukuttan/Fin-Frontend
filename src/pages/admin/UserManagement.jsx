@@ -103,7 +103,7 @@ console.log(data);
               </li>
               <li>
                 <Link
-                  to="/admin/feedback-support"
+                  to="/admin/subscribers"
                   className={`flex items-center gap-3 p-3 rounded-lg text-gray-700 transition ${
                     location.pathname === "/admin/subscribers"
                       ? "bg-blue-500 text-white"
