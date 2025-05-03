@@ -109,16 +109,21 @@ const SubscriptionPage = () => {
       title: "Free",
       price: 0,
       icon: <Shield />,
-      features: ["Basic Features", "Email Support"],
+      features: [
+        "Unlimited Transactions",
+        "Add One Budget and One Savings Goal",
+        "Access to Income vs Expense Report Only",
+      ],
     },
     basic: {
       title: "Basic",
       price: 9.99,
       icon: <Star />,
       features: [
-        "Everything in Basic",
-        "Advanced Features",
-        "Priority Support",
+        "Unlimited Transactions",
+        "Create Multiple Budgets and Savings Goals",
+        "Access to Budget and Expense Reports",
+        
       ],
     },
     premium: {
@@ -126,12 +131,14 @@ const SubscriptionPage = () => {
       price: 29.99,
       icon: <Shield />,
       features: [
-        "Everything in Standard",
-        "Dedicated Manager",
-        "Custom Integrations",
+        "All Basic Plan Features",
+        "Set Preferred Currency",
+        "Enable Recurring Transactions",
+        
       ],
     },
   };
+  
 
   const handleSubscribe = (planKey) => {
     const plan = plans[planKey];
