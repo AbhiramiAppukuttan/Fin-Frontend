@@ -13,6 +13,7 @@ const Subscribers = () => {
     "/admin/user-management": "User Management",
     "/admin/feedback-support": "Feedback & Support",
     "/admin/subscribers": "Subscribers",
+    "/admin/reports": "Reports",
   };
 
   const { data } = useQuery({

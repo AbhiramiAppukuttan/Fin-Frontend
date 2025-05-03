@@ -112,7 +112,7 @@ console.log(data);
               </li>
               
               <li>
-                <Link to="/admin/report" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
+                <Link to="/admin/reports" className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100">
                   <BarChart size={20} /> Reports
                 </Link>
               </li>
