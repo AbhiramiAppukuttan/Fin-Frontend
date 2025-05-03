@@ -19,6 +19,9 @@ export const AuthSlice= createSlice({
       }),
       logoutAction: (state, action) => {
         state.user = null;
+        state.token = null;
+        state.isAuthenticated = false;
+        
       }
   }
 })
@@ -26,3 +29,8 @@ export const AuthSlice= createSlice({
 export default AuthSlice.reducer
 
 export const {loginUserAction,registerUserAction,logoutAction} =  AuthSlice.actions
+
+
+
+
+

@@ -19,10 +19,14 @@ const DashboardNavbar = () => {
   });
 const dispatch=useDispatch()
 
+
 const handleLogout = () => {
   dispatch(logoutAction());
+  // Clear all storage
   sessionStorage.clear();
-  navigate("/login");  // Navigate immediately
+  localStorage.clear(); // Add this if you use localStorage
+  navigate("/login");
+  window.location.reload(); // Force a full page refresh to reset all state
 };
 
   // Count unread notifications
