@@ -1,6 +1,6 @@
 import React from "react";
 import { FaBell, FaPowerOff, FaUserAlt, FaChartLine } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Home, Users, BarChart, Settings } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { viewReportAPI } from "../../services/adminServices";
@@ -16,6 +16,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
 
 // ✅ Group Transactions by Month (Jan to Dec)
 const groupTransactionStatsByMonth = (transactions = []) => {
