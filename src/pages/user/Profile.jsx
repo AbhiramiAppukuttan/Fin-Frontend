@@ -54,7 +54,7 @@ const UserProfile = () => {
       currentPassword: '',
       newPassword: '',
     },
-    validationSchema: basicSchema,
+    // validationSchema: basicSchema,
     
     enableReinitialize: true,
 onSubmit: async (values) => {
