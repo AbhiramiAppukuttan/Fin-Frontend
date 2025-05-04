@@ -26,6 +26,16 @@ const UserProfile = () => {
   const passwordMutation= useMutation({
     mutationFn: changeAPI,
     mutationKey: ['change-password'],
+    onError: (error) => {
+      if (error.response && error.response.data) {
+        // Check if it's the error for incorrect current password
+        if (error.response.data.message.includes('incorrect password')) {
+          setPasswordError('Current password is incorrect. Please try again.');
+        } else {
+          setPasswordError(error.response.data.message || 'An error occurred');
+        }
+      }
+    }
   });
 
   const user = data?.user || {}; 
@@ -82,6 +92,8 @@ const UserProfile = () => {
         console.error("Error updating profile", error);
       }
     },
+    
+    
   });
   
     // enableReinitialize: true, // Ensure values update when user data changes
@@ -195,7 +207,7 @@ const UserProfile = () => {
         <form onSubmit={formik.handleSubmit} className="space-y-6">
         {successMessage && <p className="text-green-600 text-sm mt-2">{successMessage}</p>}
         {passwordError && <p className="text-red-600 text-sm mt-2">{passwordError}</p>}
-        
+
         <div className="flex justify-between items-center">
             <p className="text-gray-700 font-semibold">Name</p>
             {isEditing ? (
