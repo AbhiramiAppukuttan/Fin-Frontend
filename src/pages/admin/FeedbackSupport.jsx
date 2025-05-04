@@ -155,7 +155,7 @@ const FeedbackSupport = () => {
                         className="border-b border-gray-200 hover:bg-gray-100"
                       >
                         <td className="py-2">{new Date(complaint.date).toLocaleDateString()}</td>
-                        <td className="py-2">{complaint.user.username}</td>
+                        <td className="py-2">{complaint.user.username || "N/A"}</td>
                         <td className="py-2">{complaint.type}</td>
                       
                         <td className="py-2 text-left max-w-xs whitespace-pre-wrap break-words">
