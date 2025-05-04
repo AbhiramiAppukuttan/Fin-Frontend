@@ -10,6 +10,9 @@ const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showPasswordFields, setShowPasswordFields] = useState(false); // toggle password section
 
+  const [passwordError, setPasswordError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
   const { data, refetch } = useQuery({
     queryKey: ['profile'],
     queryFn: addProfileAPI,
@@ -62,9 +65,10 @@ const UserProfile = () => {
           currencyPreference: values.currencyPreference,
         };
   // Always include currencyPreference in the payload for premium users
-if (user.plan === "premium") {
-  payload.currencyPreference = values.currencyPreference || 'Not Set';
-}
+        if (user.plan === "premium") {
+          payload.currencyPreference = values.currencyPreference || 'Not Set';
+        }
+
         if (values.currentPassword && values.newPassword) {
           payload.oldPassword = values.currentPassword;
           payload.password = values.newPassword;
@@ -135,6 +139,7 @@ if (user.plan === "premium") {
   };
 
   const maskPassword = (password) => "•".repeat(password.length);
+  
 
 
   return (
@@ -188,6 +193,8 @@ if (user.plan === "premium") {
         </div>
 
         <form onSubmit={formik.handleSubmit} className="space-y-6">
+        {successMessage && <p className="text-green-600 text-sm mt-2">{successMessage}</p>}
+        {passwordError && <p className="text-red-600 text-sm mt-2">{passwordError}</p>}
         
         <div className="flex justify-between items-center">
             <p className="text-gray-700 font-semibold">Name</p>
@@ -239,26 +246,10 @@ if (user.plan === "premium") {
           </div>
           <div className="flex justify-between items-center">
             <p className="text-gray-700 font-semibold">Currency Preference</p>
-            {/* {isEditing ? (
-              <input 
-                type="text" 
-                name="currencyPreference" 
-                value={formik.values.currencyPreference} 
-                onChange={formik.handleChange} 
-                className="border border-gray-300 rounded-md p-2"
-              />
-            ) : (
-              <p>{user?.currencyPreference || 'INR'}</p>
-            )} */}
+            
             {isEditing ? (
   user?.plan === "premium" ? (
-    // <input 
-    //   type="text" 
-    //   name="currencyPreference" 
-    //   value={formik.values.currencyPreference} 
-    //   onChange={formik.handleChange} 
-    //   className="border border-gray-300 rounded-md p-2"
-    // />
+   
     <select
         name="currencyPreference"
         value={formik.values.currencyPreference}
