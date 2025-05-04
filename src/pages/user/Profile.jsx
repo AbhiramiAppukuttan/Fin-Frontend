@@ -284,7 +284,7 @@ onSubmit: async (values) => {
 )}
 
           </div>
-{/* {isEditing && (
+{isEditing && (
   <div>
     <div className="flex justify-between items-center">
       <p className="text-gray-700 font-semibold">Password</p>
@@ -322,12 +322,15 @@ onSubmit: async (values) => {
             className="w-full border border-gray-300 rounded-md p-2"
           />
         </div>
+        {passwordError && (
+          <p className="text-red-500 text-sm mt-2">{passwordError}</p>
+        )}
       </div>
     )}
   </div>
-)} */}
+)}
 
-{isEditing && (
+{/* {isEditing && (
   <>
     <div
       className="flex justify-between items-center cursor-pointer"
@@ -365,7 +368,7 @@ onSubmit: async (values) => {
       </>
     )}
   </>
-)}
+)} */}
 
 
           
