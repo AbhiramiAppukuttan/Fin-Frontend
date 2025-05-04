@@ -339,7 +339,11 @@ const UserProfile = () => {
             className="w-full border border-gray-300 rounded-md p-2"
           />
         </div>
+        {passwordError && (
+      <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+    )}
       </div>
+      
     )}
   </div>
 )}
