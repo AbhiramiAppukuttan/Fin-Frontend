@@ -28,11 +28,10 @@ const UserProfile = () => {
     mutationKey: ['change-password'],
     onError: (error) => {
       if (error.response && error.response.data) {
-        // Check if it's the error for incorrect current password
-        if (error.response.data.message.includes('incorrect password')) {
+        if (error.response.data.message?.toLowerCase().includes('incorrect')) {
           setPasswordError('Current password is incorrect. Please try again.');
         } else {
-          setPasswordError(error.response.data.message || 'An error occurred');
+          setPasswordError(error.response.data.message || 'An error occurred.');
         }
       }
     }
@@ -67,7 +66,18 @@ const UserProfile = () => {
     
     enableReinitialize: true,
     onSubmit: async (values) => {
+      setPasswordError('');
+      setSuccessMessage('');
+
       try {
+
+        if (values.currentPassword && values.newPassword) {
+          await passwordMutation.mutateAsync({
+            oldPassword: values.currentPassword,
+            newPassword: values.newPassword,
+          });
+        }
+
         const payload = {
           username: values.username,
           dob: values.dob,
@@ -79,10 +89,7 @@ const UserProfile = () => {
           payload.currencyPreference = values.currencyPreference || 'Not Set';
         }
 
-        if (values.currentPassword && values.newPassword) {
-          payload.oldPassword = values.currentPassword;
-          payload.password = values.newPassword;
-        }
+        
   
         await mutateAsync(payload);
         refetch();
@@ -96,42 +103,7 @@ const UserProfile = () => {
     
   });
   
-    // enableReinitialize: true, // Ensure values update when user data changes
-    // onSubmit: async (values) => {
-    //   try {
-    //     await mutateAsync(values);
-    //     refetch();
-    //     setIsEditing(false); // Exit edit mode after successful update
-    //     setShowPasswordFields(false);
-    //   } catch (error) {
-    //     console.error("Error updating profile", error);
-    //   }
-    // },
-    // onSubmit: async (values) => {
-    //   try {
-    //     const payload = {
-    //       username: values.username,
-    //       dob: values.dob,
-    //       phone: values.phone,
-    //       currencyPreference: values.currencyPreference,
-    //     };
     
-    //     if (values.currentPassword && values.newPassword) {
-    //       payload.oldPassword = values.currentPassword;
-    //       payload.password = values.newPassword;
-    //     }
-    
-    //     await mutateAsync(payload); // PUT to /api/users/profile
-    //     refetch(); // get updated data
-    //     setIsEditing(false);
-    //     setShowPasswordFields(false);
-    //   } catch (error) {
-    //     console.error("Error updating profile", error);
-    //   }
-    // },
-    
-  
-
   const toggleEdit = () => {
     setIsEditing(!isEditing);
     if (!isEditing) {
@@ -205,8 +177,14 @@ const UserProfile = () => {
         </div>
 
         <form onSubmit={formik.handleSubmit} className="space-y-6">
-        {successMessage && <p className="text-green-600 text-sm mt-2">{successMessage}</p>}
-        {passwordError && <p className="text-red-600 text-sm mt-2">{passwordError}</p>}
+
+        {passwordError && (
+            <p className="text-red-500 text-sm">{passwordError}</p>
+        )}
+
+        {successMessage && (
+            <p className="text-green-600 text-sm">{successMessage}</p>
+        )}
 
         <div className="flex justify-between items-center">
             <p className="text-gray-700 font-semibold">Name</p>
