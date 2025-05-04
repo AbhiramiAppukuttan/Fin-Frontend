@@ -96,7 +96,7 @@ const UserProfile = () => {
         setIsEditing(false);
         setShowPasswordFields(false);
       } catch (error) {
-        console.error("Error updating profile", error);
+        console.error("Profile update error:", error?.response?.data?.message || error.message);
       }
     },
     
