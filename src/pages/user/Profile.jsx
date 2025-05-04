@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [showPasswordFields, setShowPasswordFields] = useState(false); // toggle password section
+  const [passwordError, setPasswordError] = useState('');
+
 
   const { data, refetch } = useQuery({
     queryKey: ['profile'],
@@ -53,68 +55,68 @@ const UserProfile = () => {
     },
     
     enableReinitialize: true,
-    onSubmit: async (values) => {
-      try {
-        const payload = {
-          username: values.username,
-          dob: values.dob,
-          phone: values.phone,
-          currencyPreference: values.currencyPreference,
-        };
-  // Always include currencyPreference in the payload for premium users
-if (user.plan === "premium") {
-  payload.currencyPreference = values.currencyPreference || 'Not Set';
-}
-        if (values.currentPassword && values.newPassword) {
-          payload.oldPassword = values.currentPassword;
-          payload.password = values.newPassword;
-        }
+//     onSubmit: async (values) => {
+//       try {
+//         const payload = {
+//           username: values.username,
+//           dob: values.dob,
+//           phone: values.phone,
+//           currencyPreference: values.currencyPreference,
+//         };
+//   // Always include currencyPreference in the payload for premium users
+// if (user.plan === "premium") {
+//   payload.currencyPreference = values.currencyPreference || 'Not Set';
+// }
+//         if (values.currentPassword && values.newPassword) {
+//           payload.oldPassword = values.currentPassword;
+//           payload.password = values.newPassword;
+//         }
   
-        await mutateAsync(payload);
-        refetch();
-        setIsEditing(false);
-        setShowPasswordFields(false);
-      } catch (error) {
-        console.error("Error updating profile", error);
-      }
-    },
+//         await mutateAsync(payload);
+//         refetch();
+//         setIsEditing(false);
+//         setShowPasswordFields(false);
+//       } catch (error) {
+//         console.error("Error updating profile", error);
+//       }
+//     },
+
+
+
+onSubmit: async (values) => {
+  try {
+    const payload = {
+      username: values.username,
+      dob: values.dob,
+      phone: values.phone,
+      currencyPreference: values.currencyPreference,
+    };
+
+    if (user.plan === "premium") {
+      payload.currencyPreference = values.currencyPreference || 'Not Set';
+    }
+
+    if (values.currentPassword && values.newPassword) {
+      payload.oldPassword = values.currentPassword;
+      payload.password = values.newPassword;
+    }
+
+    await mutateAsync(payload);
+    refetch();
+    setIsEditing(false);
+    setShowPasswordFields(false);
+    setPasswordError(''); // Clear error if successful
+  } catch (error) {
+    console.error("Error updating profile", error);
+    if (error?.response?.data?.message === "Incorrect current password") {
+      setPasswordError("Incorrect current password. Please try again.");
+    } else {
+      setPasswordError("Failed to update profile. Please try again.");
+    }
+  }
+},
+
   });
-  
-    // enableReinitialize: true, // Ensure values update when user data changes
-    // onSubmit: async (values) => {
-    //   try {
-    //     await mutateAsync(values);
-    //     refetch();
-    //     setIsEditing(false); // Exit edit mode after successful update
-    //     setShowPasswordFields(false);
-    //   } catch (error) {
-    //     console.error("Error updating profile", error);
-    //   }
-    // },
-    // onSubmit: async (values) => {
-    //   try {
-    //     const payload = {
-    //       username: values.username,
-    //       dob: values.dob,
-    //       phone: values.phone,
-    //       currencyPreference: values.currencyPreference,
-    //     };
-    
-    //     if (values.currentPassword && values.newPassword) {
-    //       payload.oldPassword = values.currentPassword;
-    //       payload.password = values.newPassword;
-    //     }
-    
-    //     await mutateAsync(payload); // PUT to /api/users/profile
-    //     refetch(); // get updated data
-    //     setIsEditing(false);
-    //     setShowPasswordFields(false);
-    //   } catch (error) {
-    //     console.error("Error updating profile", error);
-    //   }
-    // },
-    
-  
 
   const toggleEdit = () => {
     setIsEditing(!isEditing);
@@ -336,7 +338,7 @@ if (user.plan === "premium") {
       </div>
     </div>
 
-    {showPasswordFields && (
+    {/* {showPasswordFields && (
       <div className="mt-4 space-y-4">
         <div>
           <label className="block text-gray-700 font-semibold mb-1">Current Password</label>
@@ -359,7 +361,36 @@ if (user.plan === "premium") {
           />
         </div>
       </div>
+    )} */}
+
+{showPasswordFields && (
+  <>
+    <div className="flex justify-between items-center">
+      <p className="text-gray-700 font-semibold">Current Password</p>
+      <input
+        type="password"
+        name="currentPassword"
+        value={formik.values.currentPassword}
+        onChange={formik.handleChange}
+        className="border border-gray-300 rounded-md p-2"
+      />
+    </div>
+    {passwordError && (
+      <p className="text-red-500 text-sm mt-1">{passwordError}</p>
     )}
+    <div className="flex justify-between items-center">
+      <p className="text-gray-700 font-semibold">New Password</p>
+      <input
+        type="password"
+        name="newPassword"
+        value={formik.values.newPassword}
+        onChange={formik.handleChange}
+        className="border border-gray-300 rounded-md p-2"
+      />
+    </div>
+  </>
+)}
+
   </div>
 )}
 
