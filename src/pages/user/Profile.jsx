@@ -85,9 +85,11 @@ onSubmit: async (values) => {
     if (error.response.data.message === "Incorrect current password") {
       setPasswordError("Incorrect current password. Please try again.");
     } 
-    // else {
-    //   setPasswordError("Failed to update profile. Please try again.");
-    // }
+    else {
+      // setPasswordError("Failed to update profile. Please try again.");
+      setPasswordError("Incorrect current password. Please try again.");
+
+    }
   }
 },
 
