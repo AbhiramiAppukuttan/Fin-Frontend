@@ -17,7 +17,7 @@ const UserProfile = () => {
     queryFn: addProfileAPI,
   });
 
-  const { mutateAsync, isError, error, isSuccess, isPending  } = useMutation({
+  const { mutateAsync } = useMutation({
     mutationFn: profileAPI,
     mutationKey: ['edit-profile'],
   });
@@ -107,7 +107,12 @@ onSubmit: async (values) => {
     setShowPasswordFields(false);
     setPasswordError(''); // Clear error if successful
   } catch (error) {
-    console.error("Login Error:", error);
+    console.error("Error updating profile", error);
+    if (error.response.data.message === "Incorrect current password") {
+      setPasswordError("Incorrect current password. Please try again.");
+    } else {
+      setPasswordError("Failed to update profile. Please try again.");
+    }
   }
 },
 
@@ -354,9 +359,9 @@ onSubmit: async (values) => {
             className="border border-gray-300 rounded-md p-2"
           />
         </div>
-        {errors.password && touched.password && (
-              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
-       )}
+        {passwordError && (
+          <p className="text-red-500 text-sm mt-2">{passwordError}</p>
+        )}
       </>
     )}
   </>
@@ -372,11 +377,6 @@ onSubmit: async (values) => {
             </button>
           )}
         </form>
-        {isError && (
-          <div className="alert-box bg-red-100 text-red-800 border border-red-300 text-center max-w-lg p-5 rounded-lg mx-auto mt-4">
-            {error?.response?.data?.message || error.message || "Login failed. Please try again."}
-          </div>
-        )}
       </div>
       </div>
     </div>
