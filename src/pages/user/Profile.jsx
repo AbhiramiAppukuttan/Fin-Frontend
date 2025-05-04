@@ -4,6 +4,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { addProfileAPI, changeAPI, profileAPI } from '../../services/userServices';
 import { useFormik } from 'formik';
 import { Link } from "react-router-dom";
+import { basicSchema } from '../../schema';
 
 
 const UserProfile = () => {
@@ -53,36 +54,9 @@ const UserProfile = () => {
       currentPassword: '',
       newPassword: '',
     },
+    validationSchema: basicSchema,
     
     enableReinitialize: true,
-//     onSubmit: async (values) => {
-//       try {
-//         const payload = {
-//           username: values.username,
-//           dob: values.dob,
-//           phone: values.phone,
-//           currencyPreference: values.currencyPreference,
-//         };
-//   // Always include currencyPreference in the payload for premium users
-// if (user.plan === "premium") {
-//   payload.currencyPreference = values.currencyPreference || 'Not Set';
-// }
-//         if (values.currentPassword && values.newPassword) {
-//           payload.oldPassword = values.currentPassword;
-//           payload.password = values.newPassword;
-//         }
-  
-//         await mutateAsync(payload);
-//         refetch();
-//         setIsEditing(false);
-//         setShowPasswordFields(false);
-//       } catch (error) {
-//         console.error("Error updating profile", error);
-//       }
-//     },
-
-
-
 onSubmit: async (values) => {
   try {
     const payload = {
@@ -110,9 +84,10 @@ onSubmit: async (values) => {
     console.error("Error updating profile", error);
     if (error.response.data.message === "Incorrect current password") {
       setPasswordError("Incorrect current password. Please try again.");
-    } else {
-      setPasswordError("Failed to update profile. Please try again.");
-    }
+    } 
+    // else {
+    //   setPasswordError("Failed to update profile. Please try again.");
+    // }
   }
 },
 
@@ -309,9 +284,7 @@ onSubmit: async (values) => {
             className="w-full border border-gray-300 rounded-md p-2"
           />
         </div>
-        {passwordError && (
-      <p className="text-red-500 text-sm mt-1">{passwordError}</p>
-    )}
+       
         <div>
           <label className="block text-gray-700 font-semibold mb-1">New Password</label>
           <input
@@ -330,45 +303,7 @@ onSubmit: async (values) => {
   </div>
 )}
 
-{/* {isEditing && (
-  <>
-    <div
-      className="flex justify-between items-center cursor-pointer"
-      onClick={() => setShowPasswordFields(!showPasswordFields)}
-    >
-      <p className="text-blue-600 font-semibold">Change Password</p>
-      {showPasswordFields ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-    </div>
 
-    {showPasswordFields && (
-      <>
-        <div className="flex justify-between items-center">
-          <p className="text-gray-700 font-semibold">Current Password</p>
-          <input
-            type="password"
-            name="currentPassword"
-            value={formik.values.currentPassword}
-            onChange={formik.handleChange}
-            className="border border-gray-300 rounded-md p-2"
-          />
-        </div>
-        <div className="flex justify-between items-center">
-          <p className="text-gray-700 font-semibold">New Password</p>
-          <input
-            type="password"
-            name="newPassword"
-            value={formik.values.newPassword}
-            onChange={formik.handleChange}
-            className="border border-gray-300 rounded-md p-2"
-          />
-        </div>
-        {passwordError && (
-          <p className="text-red-500 text-sm mt-2">{passwordError}</p>
-        )}
-      </>
-    )}
-  </>
-)} */}
 
 
           
