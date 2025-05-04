@@ -108,7 +108,7 @@ onSubmit: async (values) => {
     setPasswordError(''); // Clear error if successful
   } catch (error) {
     console.error("Error updating profile", error);
-    if (error?.response?.data?.message === "Incorrect current password") {
+    if (error.response.data.message === "Incorrect current password") {
       setPasswordError("Incorrect current password. Please try again.");
     } else {
       setPasswordError("Failed to update profile. Please try again.");
