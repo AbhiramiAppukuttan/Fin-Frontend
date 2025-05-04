@@ -26,7 +26,7 @@ const handleLogout = () => {
   sessionStorage.clear();
   localStorage.clear(); // Add this if you use localStorage
   navigate("/login");
-  window.location.reload(); // Force a full page refresh to reset all state
+  // window.location.reload(); // Force a full page refresh to reset all state
 };
 
   // Count unread notifications

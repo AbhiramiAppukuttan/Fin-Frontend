@@ -89,7 +89,7 @@ const SignupPage = () => {
           >
             {isPending ? 'Signing up...' : 'Sign Up'}
           </button>
-          <button
+          {/* <button
             type="button"
             onClick={handleGoogleSignup}
             className="flex items-center gap-3 w-full justify-center py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-100 transition"
@@ -100,7 +100,7 @@ const SignupPage = () => {
               className="w-5 h-5"
             />
             Sign up with Google
-          </button>
+          </button> */}
         </form>
 
         <p className="text-center text-gray-600 mt-4">
