@@ -284,48 +284,7 @@ onSubmit: async (values) => {
 )}
 
           </div>
-
-          {/* <div className="flex justify-between items-center">
-            <p className="text-gray-700 font-semibold">Password</p>
-            {isEditing && (
-              <>
-                <div
-                  className="flex justify-between items-center cursor-pointer"
-                  onClick={() => setShowPasswordFields(!showPasswordFields)}
-                >
-                  <p className="text-blue-600 font-semibold">Change Password</p>
-                  {showPasswordFields ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                </div>
-
-                {showPasswordFields && (
-                  <>
-                    <div className="flex justify-between items-center">
-                      <p className="text-gray-700 font-semibold">Current Password</p>
-                      <input
-                        type="password"
-                        name="currentPassword"
-                        value={formik.values.currentPassword}
-                        onChange={formik.handleChange}
-                        className="border border-gray-300 rounded-md p-2"
-                      />
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <p className="text-gray-700 font-semibold">New Password</p>
-                      <input
-                        type="password"
-                        name="newPassword"
-                        value={formik.values.newPassword}
-                        onChange={formik.handleChange}
-                        className="border border-gray-300 rounded-md p-2"
-                      />
-                    </div>
-                  </>
-                )}
-              </>
-            )}
-            
-          </div> */}
-{isEditing && (
+{/* {isEditing && (
   <div>
     <div className="flex justify-between items-center">
       <p className="text-gray-700 font-semibold">Password</p>
@@ -338,7 +297,7 @@ onSubmit: async (values) => {
       </div>
     </div>
 
-    {/* {showPasswordFields && (
+    {showPasswordFields && (
       <div className="mt-4 space-y-4">
         <div>
           <label className="block text-gray-700 font-semibold mb-1">Current Password</label>
@@ -350,6 +309,9 @@ onSubmit: async (values) => {
             className="w-full border border-gray-300 rounded-md p-2"
           />
         </div>
+        {passwordError && (
+      <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+    )}
         <div>
           <label className="block text-gray-700 font-semibold mb-1">New Password</label>
           <input
@@ -361,39 +323,49 @@ onSubmit: async (values) => {
           />
         </div>
       </div>
-    )} */}
-
-{showPasswordFields && (
-  <>
-    <div className="flex justify-between items-center">
-      <p className="text-gray-700 font-semibold">Current Password</p>
-      <input
-        type="password"
-        name="currentPassword"
-        value={formik.values.currentPassword}
-        onChange={formik.handleChange}
-        className="border border-gray-300 rounded-md p-2"
-      />
-    </div>
-    {passwordError && (
-      <p className="text-red-500 text-sm mt-1">{passwordError}</p>
     )}
-    <div className="flex justify-between items-center">
-      <p className="text-gray-700 font-semibold">New Password</p>
-      <input
-        type="password"
-        name="newPassword"
-        value={formik.values.newPassword}
-        onChange={formik.handleChange}
-        className="border border-gray-300 rounded-md p-2"
-      />
+  </div>
+)} */}
+
+{isEditing && (
+  <>
+    <div
+      className="flex justify-between items-center cursor-pointer"
+      onClick={() => setShowPasswordFields(!showPasswordFields)}
+    >
+      <p className="text-blue-600 font-semibold">Change Password</p>
+      {showPasswordFields ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
     </div>
+
+    {showPasswordFields && (
+      <>
+        <div className="flex justify-between items-center">
+          <p className="text-gray-700 font-semibold">Current Password</p>
+          <input
+            type="password"
+            name="currentPassword"
+            value={formik.values.currentPassword}
+            onChange={formik.handleChange}
+            className="border border-gray-300 rounded-md p-2"
+          />
+        </div>
+        <div className="flex justify-between items-center">
+          <p className="text-gray-700 font-semibold">New Password</p>
+          <input
+            type="password"
+            name="newPassword"
+            value={formik.values.newPassword}
+            onChange={formik.handleChange}
+            className="border border-gray-300 rounded-md p-2"
+          />
+        </div>
+        {passwordError && (
+          <p className="text-red-500 text-sm mt-2">{passwordError}</p>
+        )}
+      </>
+    )}
   </>
 )}
-
-  </div>
-)}
-
 
 
           
